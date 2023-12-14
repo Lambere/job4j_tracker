@@ -8,8 +8,8 @@ public class Student {
         System.out.println("Tra tra tra");
     }
     public static void main(String[] args) {
-        Student petya = new Student();
         int i = 0;
+        Student petya = new Student();
         while (i++ < 3) {
             petya.sing();
         }

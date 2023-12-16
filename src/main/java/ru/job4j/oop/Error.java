@@ -4,9 +4,10 @@ public class Error {
     static boolean active;
     static int status;
     static String message;
-    Error() {}
-    Error(boolean act, int stat, String message) {
+    Error () {
+    }
 
+    Error (boolean act, int stat, String message) {
     }
 
     public static void main(String[] args) {

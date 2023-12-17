@@ -4,6 +4,7 @@ public class Error {
     static boolean active;
     static int status;
     static String message;
+
     Error() {
     }
 

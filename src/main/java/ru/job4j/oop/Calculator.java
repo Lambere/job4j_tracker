@@ -17,7 +17,7 @@ public class Calculator {
     }
 
     public  float sumAllOperation(int num) {
-        return  divide(num) + minus(num) + multiply(num);
+        return  divide(num) + minus(num) + multiply(num) * sum(num);
     }
 
     public static int sum(int y) {

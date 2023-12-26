@@ -3,6 +3,7 @@ package ru.job4j.oop;
 import org.junit.Assert;
 import org.junit.Test;
 public class PointTest {
+
     @Test
     public void when00to20then2() {
         int expected = 2;
@@ -11,6 +12,7 @@ public class PointTest {
         double dist = a.distance(b);
         Assert.assertEquals(expected, dist, 0.01);
     }
+
     @Test
     public void when00to00then0() {
         int expected = 0;
@@ -19,6 +21,7 @@ public class PointTest {
         double dist = a.distance(b);
         Assert.assertEquals(expected, dist, 0.01);
     }
+
     @Test
     public void when10to00then1() {
         int expected = 1;
@@ -27,6 +30,7 @@ public class PointTest {
         double dist = a.distance(b);
         Assert.assertEquals(expected, dist, 0.01);
     }
+
     @Test
     public void when01to00then1() {
         int expected = 1;

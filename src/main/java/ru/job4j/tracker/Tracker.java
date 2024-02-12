@@ -7,7 +7,6 @@ public class Tracker {
     private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
-
     public void delete(int id) {
         int index = indexOf(id);
         if (index != -1) {

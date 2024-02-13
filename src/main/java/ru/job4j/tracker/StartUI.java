@@ -23,6 +23,7 @@ public class StartUI {
             }
         }
     }
+
     private static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Создание новой заявки ===");
         String name = input.askStr("Введите имя:");
@@ -87,7 +88,6 @@ public class StartUI {
             System.out.println("Хранилище еще не содержит заявок");
         }
     }
-
 
     private void showMenu() {
         String[] menu = {

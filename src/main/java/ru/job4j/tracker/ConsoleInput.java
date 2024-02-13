@@ -8,7 +8,6 @@ public class ConsoleInput implements Input {
     @Override
     public String askStr(String question) {
         System.out.print(question);
-
         return scanner.nextLine();
     }
 

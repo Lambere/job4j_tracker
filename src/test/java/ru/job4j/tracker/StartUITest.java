@@ -14,6 +14,7 @@ class StartUITest {
         Item expected = new Item("Fix PC");
         assertThat(created.getName()).isEqualTo(expected.getName());
     }
+
     @Test
     void whenReplaceItem() {
         Tracker tracker = new Tracker();
@@ -27,8 +28,10 @@ class StartUITest {
         Item edited = tracker.findById(item.getId());
         assertThat(edited.getName()).isEqualTo("edited item");
     }
+
     @Test
-    void whenDeleteItem() {Tracker tracker = new Tracker();
+    void whenDeleteItem() {
+        Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {
@@ -38,5 +41,4 @@ class StartUITest {
         StartUI.deleteItem(new MockInput(answers), tracker);
         Item edited = tracker.findById(item.getId());
         assertThat(edited).isNull();}
-
 }

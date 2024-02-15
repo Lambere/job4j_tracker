@@ -56,7 +56,7 @@ public class StartUI {
         }
     }
 
-    private static void replaceItem(Input input, Tracker tracker) {
+    static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Редактирование заявки ===");
         int id =  input.askInt("Введите id: ");
         String name = input.askStr("Введите имя:");

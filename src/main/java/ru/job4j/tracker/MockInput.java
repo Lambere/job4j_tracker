@@ -12,7 +12,6 @@ public class MockInput implements Input {
 
     @Override
     public String askStr(String question) {
-
         return answers[position++];
     }
 

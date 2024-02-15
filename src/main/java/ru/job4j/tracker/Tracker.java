@@ -9,7 +9,6 @@ public class Tracker {
     private int size = 0;
 
     public void delete(int id) {
-
         int index = indexOf(id);
         if (index != -1) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);

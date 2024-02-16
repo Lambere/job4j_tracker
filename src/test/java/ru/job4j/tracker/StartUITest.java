@@ -5,37 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
     @Test
-    void whenReplaceItem() {
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Replaced item")); /* Добавляется в tracker новая заявка */
-        String replacedName = "New item name";
-        Input input = new MockInput(
-                new String[] {"0" /* входные параметры для ReplaceAction (должны содержать ID добавленной заявки item.getId()) */, "1"}
-        );
-        UserAction[] actions = {
-                new ReplaceAction(),
-                new ExitAction()
-        };
-        new StartUI().init(input, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
-    }
-
-    @Test
-    void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Deleted item")); /* Добавляется в tracker новая заявка */
-        Input input = new MockInput(
-                new String[] {"0" /* входные параметры для DeleteAction (должны содержать ID добавленной заявки item.getId()) */, "1"}
-        );
-        UserAction[] actions = {
-                new DeleteAction(),
-                new ExitAction()
-        };
-        new StartUI().init(input, tracker, actions);
-        assertThat(tracker.findById(item.getId())).isNull();
-    }
-
-    @Test
     void whenCreateItem() {
         Input input = new MockInput(
                 new String[] {"0", "Item name", "1"}
@@ -49,4 +18,34 @@ class StartUITest {
         assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
     }
 
+    @Test
+    void whenReplaceItem() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Replaced item"));
+        String replacedName = "New item name";
+        Input input = new MockInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new ReplaceAction(),
+                new ExitAction()
+        };
+        new StartUI().init(input, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
+    }
+
+    @Test
+    void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Deleted item"));
+        Input input = new MockInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new DeleteAction(),
+                new ExitAction()
+        };
+        new StartUI().init(input, tracker, actions);
+        assertThat(tracker.findById(item.getId())).isNull();
+    }
 }

@@ -34,6 +34,7 @@ class StartUITest {
         new StartUI().init(input, tracker, actions);
         assertThat(tracker.findById(item.getId())).isNull();
     }
+
     @Test
     void whenCreateItem() {
         Input input = new MockInput(

@@ -8,9 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class FactorialTest {
     @Test
     public void whenException() {
+        Factorial factorial = new Factorial();
         int start = 3;
         int expected = 6;
-        int result = Factorial.calc(start);
+        int result = factorial.calc(start);
         assertThat(result).isEqualTo(expected);
     }
 }

@@ -24,8 +24,8 @@ public class UserStore {
             throw new UserInvalidException();
         }
            return false;
-
     }
+
         public static void main (String[]args) {
             User[] users = {
                     new User("Petr Arsentev", true)

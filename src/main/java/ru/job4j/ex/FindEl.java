@@ -22,6 +22,7 @@ public class FindEl {
         try {
             throw new ElementNotFoundException();
         } catch (ElementNotFoundException e) {
+
             e.printStackTrace();
         }
     }

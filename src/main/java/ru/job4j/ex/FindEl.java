@@ -8,10 +8,10 @@ public class FindEl {
             if (value[i].equals(key)) {
                 result = i;
             }
-        } if (result == -1) {
+        }
+
+        if (result == -1) {
             throw new ElementNotFoundException();
-
-
         }
         return result;
     }

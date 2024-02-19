@@ -23,10 +23,10 @@ public class UserStore {
         if (!user.isValid() && nameLength < 3) {
             throw new UserInvalidException();
         }
-           return false;
+        return false;
     }
 
-        public static void main (String[]args) {
+        public static void main (String[] args) {
             User[] users = {
                     new User("Petr Arsentev", true)
             };

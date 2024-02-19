@@ -10,7 +10,6 @@ public class UserStore {
             } else {
                 a = true;
             }
-
         }
         if (!a) {
             throw new UserNotFoundException();

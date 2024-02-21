@@ -20,13 +20,12 @@ class FactorialTest {
 
     @Test
     public void whenException() {
-        List<String> emptyList = new ArrayList<String>();
         Factorial factorial = new Factorial();
-        int start = -2;
-        assertThrows(IllegalArgumentException.class,
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
                 () -> {
-            throw new IllegalArgumentException();
+                    factorial.calc(-1);
                 });
+        assertThat(exception.getMessage()).isEqualTo("Number could not be less than 0");
     }
-
 }

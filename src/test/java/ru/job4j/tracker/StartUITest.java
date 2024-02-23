@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
 
-
     @Test
     void whenExit() {
         Output output = new StubOutput();
@@ -23,6 +22,7 @@ class StartUITest {
                         + "=== Завершение программы ===" + System.lineSeparator()
         );
     }
+
     @Test
     void whenInvalidExit() {
         Output output = new StubOutput();

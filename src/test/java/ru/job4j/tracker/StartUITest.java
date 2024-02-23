@@ -4,50 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
-   /* @Test
-    void whenCreateItem() {
-        Input input = new MockInput(
-                new String[] {"0", "Item name", "1"}
-        );
-        Tracker tracker = new Tracker();
-        UserAction[] actions = {
-                new CreateAction(),
-                new ExitAction()
-        };
-        new StartUI().init(input, tracker, actions);
-        assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
-    }
 
-    @Test
-    void whenReplace() {
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("New item name"));  Добавляется в tracker новая заявка
-        String replacedName = "New item name";
-        Input input = new MockInput(
-                new String[] {"0", String.valueOf(item.getId()), item.getName(), "1"}
-        );
-        UserAction[] actions = new UserAction[]{
-                new ReplaceAction(),
-                new ExitAction()
-        };
-        new StartUI().init(input, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
-    }
-
-    @Test
-    void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Deleted"));
-        Input input = new MockInput(
-                new String[] {"0", String.valueOf(item.getId()),  "1"}
-        );
-        UserAction[] actions = {
-                new DeleteAction(),
-                new ExitAction()
-        };
-        new StartUI().init(input, tracker, actions);
-        assertThat(tracker.findById(item.getId())).isNull();
-    }*/
 
     @Test
     void whenExit() {
@@ -64,6 +21,27 @@ class StartUITest {
                 "Меню:" + System.lineSeparator()
                         + "0. Завершить программу" + System.lineSeparator()
                         + "=== Завершение программы ===" + System.lineSeparator()
+        );
+    }
+    @Test
+    void whenInvalidExit() {
+        Output output = new StubOutput();
+        Input input = new MockInput(
+                new String[] {/* Пункты меню: неверный, верный. */}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(output.toString()).isEqualTo(
+                "Меню:" + ln
+                        + "0. Завершить программу" + ln
+                        + "Неверный ввод, вы можете выбрать: 0 .. 0" + ln
+                        + "Меню:" + ln
+                        + "0. Завершить программу" + ln
+                        + "=== Завершение программы ===" + ln
         );
     }
 }

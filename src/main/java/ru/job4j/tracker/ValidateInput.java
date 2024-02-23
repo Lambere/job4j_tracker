@@ -14,6 +14,7 @@ public class ValidateInput extends ConsoleInput {
                 System.out.println("Пожалуйста, введите корректные данные");
             }
         } while (invalid);
+
         return value;
     }
 }

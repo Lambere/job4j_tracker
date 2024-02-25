@@ -23,6 +23,6 @@ public class Kata {
         return sum;
     }
     public static void main(String[] args) {
-        threeSumClosest(new int[]{1,1,1,0}, 100);
+        threeSumClosest(new int[] {1, 1, 1, 0}, 100);
     }
 }

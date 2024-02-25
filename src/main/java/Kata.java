@@ -22,6 +22,7 @@ public class Kata {
         System.out.println(sum);
         return sum;
     }
+
     public static void main(String[] args) {
         threeSumClosest(new int[] {1, 1, 1, 0}, 100);
     }

@@ -1,5 +1,7 @@
 package ru.job4j.early;
 
+import java.util.Arrays;
+
 public class PasswordValidator {
     private static final String[] FORBIDDEN = {"qwerty", "12345", "password", "admin", "user"};
 
@@ -24,6 +26,7 @@ public class PasswordValidator {
      */
     public static String validate(String password) {
         String[] noPassword = new String[] { "qwerty", "12345", "password", "admin", "user"};
+
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
         }
@@ -70,15 +73,15 @@ public class PasswordValidator {
                     "Password should contain at least one special symbol"
             );
         }
-        for (String s : noPassword) {
-            if (password.toLowerCase().equals(s)) {
-                throw new IllegalArgumentException(
-                        "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"
-                );
+        for (int i = 0; i < noPassword.length; i++) {
+            String s = noPassword[i];
+            if (password.toLowerCase().contains(s)) {
+                throw new IllegalArgumentException ("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+                }
             }
-        }
 
-        return password;
+            return password;
+        }
     }
-}
+
 

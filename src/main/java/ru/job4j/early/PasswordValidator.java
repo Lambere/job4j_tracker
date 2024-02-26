@@ -25,8 +25,7 @@ public class PasswordValidator {
      * @return Вернет пароль или выбросит исключение.
      */
     public static String validate(String password) {
-        String[] noPassword = new String[] { "qwerty", "12345", "password", "admin", "user"};
-
+        String[] noPassword = new String[] {"qwerty", "12345", "password", "admin", "user"};
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
         }
@@ -39,16 +38,16 @@ public class PasswordValidator {
         boolean hasDigit = false;
         boolean hasSpecial = false;
         for (char symbol : password.toCharArray()) {
-            if(Character.isLowerCase(symbol)) {
+            if (Character.isLowerCase(symbol)) {
                 hasLowCase = true;
             }
-            if(Character.isDigit(symbol)) {
+            if (Character.isDigit(symbol)) {
                 hasDigit = true;
             }
-            if(Character.isUpperCase(symbol)) {
+            if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
             }
-            if(!Character.isLetter(symbol) && !Character.isDigit(symbol)) {
+            if (!Character.isLetter(symbol) && !Character.isDigit(symbol)) {
                 hasSpecial = true;
             }
 
@@ -73,15 +72,16 @@ public class PasswordValidator {
                     "Password should contain at least one special symbol"
             );
         }
-        for (int i = 0; i < noPassword.length; i++) {
-            String s = noPassword[i];
-            if (password.toLowerCase().contains(s)) {
-                throw new IllegalArgumentException ("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
-                }
-            }
 
-            return password;
+        for (String s : noPassword) {
+            if (password.toLowerCase().contains(s)) {
+                throw new IllegalArgumentException(
+                        "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"
+                );
+            }
         }
+            return password;
     }
+}
 
 

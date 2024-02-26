@@ -1,12 +1,17 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
-
 public final class SingleTracker {
-    private final Item[] items = new Item[100];
+    private static SingleTracker singleTracker = null;
     private Tracker tracker = new Tracker();
 
     private SingleTracker() {
+    }
+
+    public static SingleTracker getInstance() {
+        if (singleTracker == null) {
+            singleTracker = new SingleTracker();
+        }
+        return singleTracker;
     }
 
     public Item add(Item item) {
@@ -26,14 +31,8 @@ public final class SingleTracker {
     }
 
     private int indexOf(int id) {
-        int result = -1;
-        for (int index = 0; index < items.length; index++) {
-            if (items[index].getId() == id) {
-                result = index;
-                break;
-            }
-        }
-        return result;
+
+        return tracker.indexOf(id);
     }
 
     public Item[] findAll() {

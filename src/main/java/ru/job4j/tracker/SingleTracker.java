@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 public final class SingleTracker {
-
+    private final Item[] items = new Item[100];
     private Tracker tracker = new Tracker();
 
     private SingleTracker() {
@@ -26,7 +26,14 @@ public final class SingleTracker {
     }
 
     private int indexOf(int id) {
-        return tracker.indexOf(id);
+        int result = -1;
+        for (int index = 0; index < items.length; index++) {
+            if (items[index].getId() == id) {
+                result = index;
+                break;
+            }
+        }
+        return result;
     }
 
     public Item[] findAll() {

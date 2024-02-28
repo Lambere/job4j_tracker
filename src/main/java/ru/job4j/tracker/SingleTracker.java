@@ -30,7 +30,6 @@ public final class SingleTracker {
         return tracker.replace(id, item);
     }
 
-
     public Item[] findAll() {
         return tracker.findAll();
     }

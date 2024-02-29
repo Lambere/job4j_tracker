@@ -11,6 +11,7 @@ public final class SingleTracker {
         if (singleTracker == null) {
             singleTracker = new SingleTracker();
         }
+
         return singleTracker;
     }
 

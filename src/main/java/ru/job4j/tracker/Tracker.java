@@ -62,7 +62,7 @@ public class Tracker {
 
     public Item add(Item item) {
         item.setId(ids++);
-        items.add(item);
+        items.add(size++, item);
         return item;
     }
 

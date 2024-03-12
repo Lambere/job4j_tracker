@@ -56,7 +56,7 @@ public class Tracker {
             }
         }
 
-        return(Item[]) Arrays.copyOf(items.toArray(), count);
+        return (Item[]) Arrays.copyOf(items.toArray(), count);
     }
 
     public Item add(Item item) {

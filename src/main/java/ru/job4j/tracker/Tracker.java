@@ -2,11 +2,14 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class Tracker {
+}
 
-    private final List<Item> items = new ArrayList<>() {
+
+    /*private final List<Item> items = new ArrayList<>() {
     };
     private int ids = 1;
     private int size = 0;
@@ -25,7 +28,7 @@ public class Tracker {
         boolean result = index != -1;
         if (result) {
             item.setId(id);
-            items.add(item);
+            items.add(index, item);
         }
         return result;
     }
@@ -42,7 +45,8 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        return (Item[]) Arrays.copyOf(items.toArray(), size);
+        Item[] a = items.toArray(new Item[0]);ytems.subList(0, size)
+        return a;
     }
 
     public Item[] findByName(String key) {
@@ -68,7 +72,7 @@ public class Tracker {
         public Item findById(int id) {
             int index = indexOf(id);
             return index != -1 ? items.get(index) : null;
-        }
-    }
+        } */
+
 
 

@@ -1,16 +1,10 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
 
 public class Tracker {
-}
 
-
-    /*private final List<Item> items = new ArrayList<>() {
-    };
+    private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
 
@@ -18,17 +12,16 @@ public class Tracker {
         int index = indexOf(id);
         if (index != -1) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items.remove(size - 1);
+            items[size - 1] = null;
             size--;
         }
     }
-
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
             item.setId(id);
-            items.add(index, item);
+            items[index] = item;
         }
         return result;
     }
@@ -36,7 +29,7 @@ public class Tracker {
     private int indexOf(int id) {
         int result = -1;
         for (int index = 0; index < size; index++) {
-            if (items.get(index).getId() == id) {
+            if (items[index].getId() == id) {
                 result = index;
                 break;
             }
@@ -45,34 +38,34 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] a = items.toArray(new Item[0]);ytems.subList(0, size)
-        return a;
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
         Item[] rsl = new Item[size];
         int count = 0;
+
         for (int i = 0; i < size; i++) {
-            Item item = items.get(i);
+            Item item = items[i];
             if (item.getName().equals(key)) {
                 rsl[count++] = item;
 
             }
         }
 
-        return (Item[]) Arrays.copyOf(items.toArray(), count);
+        return Arrays.copyOf(items, count);
     }
 
     public Item add(Item item) {
         item.setId(ids++);
-        items.add(size++, item);
+        items[size++] = item;
         return item;
     }
 
-        public Item findById(int id) {
-            int index = indexOf(id);
-            return index != -1 ? items.get(index) : null;
-        } */
-
+    public Item findById(int id) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+}
 
 

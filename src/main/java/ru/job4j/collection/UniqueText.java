@@ -10,14 +10,14 @@ public class UniqueText {
         String[] text = duplicateText.split(" ");
         HashSet<String> check = new HashSet<>();
         HashSet<String> orig = new HashSet<>();
-        for(String a : origin) {
-
+        for (String a : origin) {
             orig.add(a);
         }
-        for(String a : text) {
+        for (String a : text) {
             check.add(a);
         }
-        if(orig.contains(check)) {
+
+        if (orig.contains(check)) {
             result = false;
         }
 

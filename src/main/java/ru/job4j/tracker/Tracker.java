@@ -16,6 +16,7 @@ public class Tracker {
             size--;
         }
     }
+
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean result = index != -1;

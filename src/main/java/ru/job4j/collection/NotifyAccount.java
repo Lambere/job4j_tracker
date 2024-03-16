@@ -12,6 +12,7 @@ public class NotifyAccount {
                 break;
             }
         }
+
         return result;
     }
 }

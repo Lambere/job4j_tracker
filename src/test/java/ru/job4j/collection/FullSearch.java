@@ -20,7 +20,6 @@ public class FullSearch {
                 }
             }
         }
-
         return tasks1;
     }
 }

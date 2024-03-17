@@ -5,14 +5,7 @@ import java.util.List;
 
 public class NotifyAccount {
     public static HashSet<Account> sent(List<Account> accounts) {
-        HashSet<Account> result = new HashSet<>();
-        for (Account account : accounts) {
-            if (account.hashCode() == account.hashCode()) {
-                result.add(account);
-                break;
-            }
-        }
 
-        return result;
+        return new HashSet<>(accounts);
     }
 }

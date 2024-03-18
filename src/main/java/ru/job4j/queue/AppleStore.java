@@ -14,7 +14,7 @@ public class AppleStore {
 
     public String getLastHappyCustomer() {
         int count1 = 1;
-        while(count > count1++) {
+        while (count > count1++) {
             queue.remove();
         }
         return queue.element().name();
@@ -22,7 +22,7 @@ public class AppleStore {
 
     public String getFirstUpsetCustomer() {
         int count1 = 0;
-        while(count > count1++) {
+        while (count > count1++) {
             queue.remove();
         }
         return queue.element().name();

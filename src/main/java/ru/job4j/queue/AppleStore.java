@@ -25,6 +25,7 @@ public class AppleStore {
         while (count > count1++) {
             queue.remove();
         }
+
         return queue.element().name();
     }
 }

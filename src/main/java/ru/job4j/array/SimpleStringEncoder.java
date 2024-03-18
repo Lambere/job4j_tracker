@@ -7,8 +7,8 @@ public class SimpleStringEncoder {
         String result = "";
         int a = 0;
         char symbol = input.charAt(a);
-        int counter = 0;
-        for (int i = 0; i < input.length(); i++) {
+        int counter = 1;
+        for (int i = 1; i < input.length(); i++) {
             char symbol1 = input.charAt(i);
             if (symbol == symbol1) {
                 counter++;

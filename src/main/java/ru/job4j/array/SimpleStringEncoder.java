@@ -5,12 +5,10 @@ public class SimpleStringEncoder {
     public static String encode(String input) {
         input = input + " ";
         String result = "";
-        int a = 0;
-        char symbol = input.charAt(a);
+        char symbol = input.charAt(0);
         int counter = 1;
         for (int i = 1; i < input.length(); i++) {
-            char symbol1 = input.charAt(i);
-            if (symbol == symbol1) {
+            if (symbol == input.charAt(i)) {
                 counter++;
             } else {
                 if (counter == 1 || counter == 0) {

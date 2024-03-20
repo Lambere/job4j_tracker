@@ -17,7 +17,7 @@ public class AppleStore {
         while (count > count1++) {
             queue.poll();
         }
-        return queue.element().name();
+        return queue.peek().name();
     }
 
     public String getFirstUpsetCustomer() {
@@ -26,6 +26,6 @@ public class AppleStore {
             queue.poll();
         }
 
-        return queue.element().name();
+        return queue.peek().name();
     }
 }

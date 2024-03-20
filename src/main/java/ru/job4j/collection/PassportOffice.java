@@ -12,6 +12,7 @@ public class PassportOffice {
             citizens.put(citizen.getPassport(), citizen);
             result = true;
         }
+
         return result;
     }
 

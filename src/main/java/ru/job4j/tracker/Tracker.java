@@ -10,17 +10,18 @@ public class Tracker {
 
     public void delete(int id) {
         int index = indexOf(id);
-        if (index != -1) {
-            System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items[size - 1] = null;
-            size--;
+        if (index >= 0) {
+                System.arraycopy(items, index + 1, items, index, size - index - 1);
+                items[size - 1] = null;
+                size--;
+
         }
     }
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean result = index != -1;
-        if (result) {
+        if (index >= 0) {
             item.setId(id);
             items[index] = item;
         }

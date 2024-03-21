@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UsageMap {
+
     public static void main(String[] args) {
         HashMap<String, String> mail = new HashMap<>();
         mail.put("andreypetrov@yandex.ru", "Andrey Petrov");

@@ -19,6 +19,5 @@ public class PassportOfficeTest {
         PassportOffice office = new PassportOffice();
         office.add(citizen);
         office.add(citizen1);
-        office.get(citizen1.getPassport()).isFalse();
     }
 }

@@ -29,7 +29,7 @@ public class BankService {
         User user = findByPassport(passport);
         if (user == null || !getAccounts(user).contains(account)) {
             List<Account> bankAccounts = users.get(user);
-            if ( bankAccounts != null) {
+            if (bankAccounts != null) {
                 bankAccounts.add(account);
                 users.replace(user, bankAccounts);
             }
@@ -81,7 +81,7 @@ public class BankService {
         return result;
     }
 
-        public List<Account> getAccounts (User user) {
+        public List<Account> getAccounts(User user) {
             return users.get(user);
         }
     }

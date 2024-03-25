@@ -11,29 +11,22 @@ public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (!users.containsKey(user)) {
-            users.put(user, new ArrayList<>());
-        }
+        users.put(user, new ArrayList<>());
+
 
     }
 
     public void deleteUser(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                users.remove(user);
-            }
-        }
+        users.remove(new User(passport, ""));
     }
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        if (user == null || !getAccounts(user).contains(account)) {
+        if (user != null) {
             List<Account> bankAccounts = users.get(user);
-            if (bankAccounts != null) {
+            if (!bankAccounts.contains(account)) {
                 bankAccounts.add(account);
-                users.replace(user, bankAccounts);
             }
-
         }
     }
 
@@ -48,12 +41,9 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        List<Account> bankAccounts = users.get(user);
-        if (bankAccounts == null) {
-            return null;
-        }
-        for (Account account : bankAccounts) {
-            if (account.getRequisite().equals(requisite) && users.containsKey(passport)) {
+        for (Account account : users.get(user)) {
+            if (account != null && account.getRequisite().equals(requisite)
+                    && users.containsKey(passport)) {
                 return account;
             }
         }
@@ -63,21 +53,14 @@ public class BankService {
     public boolean transferMoney(String sourcePassport, String sourceRequisite,
                                  String destinationPassport, String destinationRequisite,
                                  double amount) {
-        List<Account> accounts = new ArrayList<>();
-        User user = new User(destinationPassport, destinationRequisite);
-        double balance = 0;
         boolean result = true;
-        if (!users.containsKey(sourcePassport)) {
-            accounts = users.get(user);
+        Account account = findByRequisite(sourcePassport, sourceRequisite);
+        Account account1 = findByRequisite(destinationPassport, destinationRequisite);
+        if (account1 == null || account1.getBalance() < amount) {
+            result = false;
         }
-
-        List<Account> a = new ArrayList<>();
-        for (Account account : accounts) {
-            balance += account.getBalance();
-        }
-        a.add(new Account(destinationRequisite, balance));
-        users.replace(user, a);
-
+        account.setBalance(account1.getBalance() + account.getBalance());
+        account1.setBalance(0);
         return result;
     }
 

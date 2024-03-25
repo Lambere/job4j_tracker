@@ -12,8 +12,6 @@ public class BankService {
 
     public void addUser(User user) {
         users.put(user, new ArrayList<>());
-
-
     }
 
     public void deleteUser(String passport) {

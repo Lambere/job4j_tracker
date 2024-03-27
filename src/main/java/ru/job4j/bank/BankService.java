@@ -42,8 +42,7 @@ public class BankService {
         if (user != null) {
             List<Account> bankAccounts = users.get(user);
             for (Account account : bankAccounts) {
-                if (account.getRequisite().equals(requisite)
-                        && users.containsKey(passport)) {
+                if (account.getRequisite().equals(requisite)) {
                     return account;
                 }
             }
